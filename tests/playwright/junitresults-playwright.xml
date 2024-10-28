@@ -1,0 +1,623 @@
+<testsuites id="" name="" tests="221" failures="5" skipped="0" errors="0" time="7.046659">
+<testsuite name="e2e.spec.ts" timestamp="2024-10-17T18:19:44.807Z" hostname="chromium" tests="10" failures="3" skipped="0" time="1.762" errors="0">
+<testcase name="[chromium] should return list of users" classname="e2e.spec.ts" time="0.302">
+<failure message="e2e.spec.ts:3:1 should return list of users" type="FAILURE">
+<![CDATA[  [chromium] › e2e.spec.ts:3:1 › should return list of users ───────────────────────────────────────
+
+    Error: expect(received).toBeOK()
+    Call log:
+      - → POST http://localhost:3000/v1/users/list
+      -   user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.6668.29 Safari/537.36
+      -   accept: */*
+      -   accept-encoding: gzip,deflate,br
+      - ← 404 Not Found
+      -   x-powered-by: Express
+      -   content-security-policy: default-src 'none'
+      -   x-content-type-options: nosniff
+      -   content-type: text/html; charset=utf-8
+      -   content-length: 153
+      -   date: Thu, 17 Oct 2024 18:19:45 GMT
+      -   connection: keep-alive
+      -   keep-alive: timeout=5
+
+    Response text:
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+    <meta charset="utf-8">
+    <title>Error</title>
+    </head>
+    <body>
+    <pre>Cannot POST /v1/users/list</pre>
+    </body>
+    </html>
+    
+
+      3 | test("should return list of users", async ({ page }) => {
+      4 |   const response = await page.request.post('http://localhost:3000/v1/users/list');
+    > 5 |   await expect(response).toBeOK();
+        |                          ^
+      6 | });
+      7 |
+      8 | test("should have a next button on the page", async ({ page }) => {
+
+        at /Users/wenyuge/code/real-saas-app/javascript/tests/playwright/e2e.spec.ts:5:26
+]]>
+</failure>
+</testcase>
+<testcase name="[chromium] should have a next button on the page" classname="e2e.spec.ts" time="0.237">
+</testcase>
+<testcase name="[chromium] should login with credentials correctly" classname="e2e.spec.ts" time="0.263">
+<failure message="e2e.spec.ts:12:1 should login with credentials correctly" type="FAILURE">
+<![CDATA[  [chromium] › e2e.spec.ts:12:1 › should login with credentials correctly ──────────────────────────
+
+    Error: expect(received).toBeOK()
+    Call log:
+      - → POST http://localhost:3000/v1/login
+      -   user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.6668.29 Safari/537.36
+      -   accept: */*
+      -   accept-encoding: gzip,deflate,br
+      - ← 404 Not Found
+      -   x-powered-by: Express
+      -   content-security-policy: default-src 'none'
+      -   x-content-type-options: nosniff
+      -   content-type: text/html; charset=utf-8
+      -   content-length: 148
+      -   date: Thu, 17 Oct 2024 18:19:45 GMT
+      -   connection: keep-alive
+      -   keep-alive: timeout=5
+
+    Response text:
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+    <meta charset="utf-8">
+    <title>Error</title>
+    </head>
+    <body>
+    <pre>Cannot POST /v1/login</pre>
+    </body>
+    </html>
+    
+
+      12 | test("should login with credentials correctly", async ({ page }) => {
+      13 |   const response = await page.request.post('http://localhost:3000/v1/login');
+    > 14 |   await expect(response).toBeOK();
+         |                          ^
+      15 | });
+      16 |
+      17 | test("should navigate to the dashboard after login", async ({ page }) => {
+
+        at /Users/wenyuge/code/real-saas-app/javascript/tests/playwright/e2e.spec.ts:14:26
+]]>
+</failure>
+</testcase>
+<testcase name="[chromium] should navigate to the dashboard after login" classname="e2e.spec.ts" time="0.286">
+</testcase>
+<testcase name="[chromium] should display user profile information" classname="e2e.spec.ts" time="0.242">
+</testcase>
+<testcase name="[chromium] should allow user to update account settings" classname="e2e.spec.ts" time="0.075">
+</testcase>
+<testcase name="[chromium] should log out user and redirect to login page" classname="e2e.spec.ts" time="0.074">
+</testcase>
+<testcase name="[chromium] should display error message for invalid login" classname="e2e.spec.ts" time="0.154">
+<failure message="e2e.spec.ts:32:1 should display error message for invalid login" type="FAILURE">
+<![CDATA[  [chromium] › e2e.spec.ts:32:1 › should display error message for invalid login ───────────────────
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: 401
+    Received: [Function status]
+
+      32 | test("should display error message for invalid login", async ({ page }) => {
+      33 |   const response = await page.request.post('http://localhost:3000/v1/login');
+    > 34 |   await expect(response.status).toBe(401);
+         |                                 ^
+      35 | });
+      36 |
+      37 | test("should load the pricing page", async ({ page }) => {
+
+        at /Users/wenyuge/code/real-saas-app/javascript/tests/playwright/e2e.spec.ts:34:33
+]]>
+</failure>
+</testcase>
+<testcase name="[chromium] should load the pricing page" classname="e2e.spec.ts" time="0.068">
+</testcase>
+<testcase name="[chromium] should display the contact form on the contact page" classname="e2e.spec.ts" time="0.061">
+</testcase>
+</testsuite>
+<testsuite name="ui-tests.spec.ts" timestamp="2024-10-17T18:19:44.807Z" hostname="chromium" tests="20" failures="2" skipped="0" time="11.61" errors="0">
+<testcase name="[chromium] has title" classname="ui-tests.spec.ts" time="0.133">
+</testcase>
+<testcase name="[chromium] should display user profile information" classname="ui-tests.spec.ts" time="5.172">
+<failure message="ui-tests.spec.ts:13:1 should display user profile information" type="FAILURE">
+<![CDATA[  [chromium] › ui-tests.spec.ts:13:1 › should display user profile information ─────────────────────
+
+    Error: Timed out 5000ms waiting for expect(locator).toBeVisible()
+
+    Locator: getByText('User ID: eli3cruz')
+    Expected: visible
+    Received: <element(s) not found>
+    Call log:
+      - expect.toBeVisible with timeout 5000ms
+      - waiting for getByText('User ID: eli3cruz')
+
+
+      17 |
+      18 |   await expect(userProfileLocator).toHaveText(["User Profile"]);
+    > 19 |   await expect(userIdLocator).toBeVisible();
+         |                               ^
+      20 | });
+      21 |
+      22 | test("should load the v1 homepage", async ({ page }) => {
+
+        at /Users/wenyuge/code/real-saas-app/javascript/tests/playwright/ui-tests.spec.ts:19:31
+]]>
+</failure>
+</testcase>
+<testcase name="[chromium] should load the v1 homepage" classname="ui-tests.spec.ts" time="0.122">
+</testcase>
+<testcase name="[chromium] should display error message for invalid login" classname="ui-tests.spec.ts" time="0.083">
+</testcase>
+<testcase name="[chromium] should navigate to the dashboard after login" classname="ui-tests.spec.ts" time="0.114">
+</testcase>
+<testcase name="[chromium] should display the contact form on the contact page" classname="ui-tests.spec.ts" time="0.054">
+</testcase>
+<testcase name="[chromium] should load the pricing page" classname="ui-tests.spec.ts" time="0.094">
+</testcase>
+<testcase name="[chromium] should allow user to update account settings" classname="ui-tests.spec.ts" time="0.057">
+</testcase>
+<testcase name="[chromium] should have a next button on the page" classname="ui-tests.spec.ts" time="0.052">
+</testcase>
+<testcase name="[chromium] should log out user and redirect to login page" classname="ui-tests.spec.ts" time="0.049">
+</testcase>
+<testcase name="[chromium] should display the about us section" classname="ui-tests.spec.ts" time="5.07">
+<failure message="ui-tests.spec.ts:72:1 should display the about us section" type="FAILURE">
+<![CDATA[  [chromium] › ui-tests.spec.ts:72:1 › should display the about us section ─────────────────────────
+
+    Error: Timed out 5000ms waiting for expect(locator).toHaveText(expected)
+
+    Locator: locator('body > div > h1')
+    Expected string: "Real SaaS App"
+    Received: <element(s) not found>
+    Call log:
+      - expect.toHaveText with timeout 5000ms
+      - waiting for locator('body > div > h1')
+
+
+      74 |
+      75 |   const titleLocator = page.locator("body > div > h1");
+    > 76 |   expect(titleLocator).toHaveText("Real SaaS App");
+         |                        ^
+      77 |   const headingLocator = page.getByText("About");
+      78 |   await expect(headingLocator).toBeVisible();
+      79 | });
+
+        at /Users/wenyuge/code/real-saas-app/javascript/tests/playwright/ui-tests.spec.ts:76:24
+
+    Error: Timed out 5000ms waiting for expect(locator).toBeVisible()
+
+    Locator: getByText('About')
+    Expected: visible
+    Received: <element(s) not found>
+    Call log:
+      - expect.toBeVisible with timeout 5000ms
+      - waiting for getByText('About')
+
+
+      76 |   expect(titleLocator).toHaveText("Real SaaS App");
+      77 |   const headingLocator = page.getByText("About");
+    > 78 |   await expect(headingLocator).toBeVisible();
+         |                                ^
+      79 | });
+      80 |
+      81 | test("should show the FAQ page", async ({ page }) => {
+
+        at /Users/wenyuge/code/real-saas-app/javascript/tests/playwright/ui-tests.spec.ts:78:32
+]]>
+</failure>
+</testcase>
+<testcase name="[chromium] should show the FAQ page" classname="ui-tests.spec.ts" time="0.085">
+</testcase>
+<testcase name="[chromium] should display the terms and conditions" classname="ui-tests.spec.ts" time="0.049">
+</testcase>
+<testcase name="[chromium] should load the blog page" classname="ui-tests.spec.ts" time="0.05">
+</testcase>
+<testcase name="[chromium] should display the search results" classname="ui-tests.spec.ts" time="0.053">
+</testcase>
+<testcase name="[chromium] should show the privacy policy" classname="ui-tests.spec.ts" time="0.076">
+</testcase>
+<testcase name="[chromium] should display the site map" classname="ui-tests.spec.ts" time="0.058">
+</testcase>
+<testcase name="[chromium] should load the careers page" classname="ui-tests.spec.ts" time="0.068">
+</testcase>
+<testcase name="[chromium] should display the newsletter signup form" classname="ui-tests.spec.ts" time="0.079">
+</testcase>
+<testcase name="[chromium] should show the testimonials section" classname="ui-tests.spec.ts" time="0.092">
+</testcase>
+</testsuite>
+<testsuite name="unit-tests.spec.ts" timestamp="2024-10-17T18:19:44.807Z" hostname="chromium" tests="191" failures="0" skipped="0" time="9.053" errors="0">
+<testcase name="[chromium] test utils/createService" classname="unit-tests.spec.ts" time="0.088">
+</testcase>
+<testcase name="[chromium] test utils/createRepository" classname="unit-tests.spec.ts" time="0.067">
+</testcase>
+<testcase name="[chromium] test utils/createController" classname="unit-tests.spec.ts" time="0.068">
+</testcase>
+<testcase name="[chromium] test utils/createMiddleware" classname="unit-tests.spec.ts" time="0.098">
+</testcase>
+<testcase name="[chromium] test utils/createHelper" classname="unit-tests.spec.ts" time="0.057">
+</testcase>
+<testcase name="[chromium] test utils/initializeDatabase" classname="unit-tests.spec.ts" time="0.052">
+</testcase>
+<testcase name="[chromium] Verify user login functionality" classname="unit-tests.spec.ts" time="0.047">
+</testcase>
+<testcase name="[chromium] test utils/formatDate" classname="unit-tests.spec.ts" time="0.046">
+</testcase>
+<testcase name="[chromium] Check if the homepage loads correctly" classname="unit-tests.spec.ts" time="0.047">
+</testcase>
+<testcase name="[chromium] test utils/calculateSum" classname="unit-tests.spec.ts" time="0.044">
+</testcase>
+<testcase name="[chromium] test utils/parseJSON" classname="unit-tests.spec.ts" time="0.047">
+</testcase>
+<testcase name="[chromium] test utils/validateEmail" classname="unit-tests.spec.ts" time="0.046">
+</testcase>
+<testcase name="[chromium] test utils/generateToken" classname="unit-tests.spec.ts" time="0.048">
+</testcase>
+<testcase name="[chromium] test utils/hashPassword" classname="unit-tests.spec.ts" time="0.044">
+</testcase>
+<testcase name="[chromium] test utils/comparePasswords" classname="unit-tests.spec.ts" time="0.047">
+</testcase>
+<testcase name="[chromium] test utils/sanitizeInput" classname="unit-tests.spec.ts" time="0.039">
+</testcase>
+<testcase name="[chromium] test utils/escapeHTML" classname="unit-tests.spec.ts" time="0.043">
+</testcase>
+<testcase name="[chromium] test utils/generateUUID" classname="unit-tests.spec.ts" time="0.043">
+</testcase>
+<testcase name="[chromium] test utils/convertToCSV" classname="unit-tests.spec.ts" time="0.045">
+</testcase>
+<testcase name="[chromium] test utils/parseCSV" classname="unit-tests.spec.ts" time="0.044">
+</testcase>
+<testcase name="[chromium] test utils/convertToXML" classname="unit-tests.spec.ts" time="0.042">
+</testcase>
+<testcase name="[chromium] test utils/parseXML" classname="unit-tests.spec.ts" time="0.043">
+</testcase>
+<testcase name="[chromium] test utils/convertToYAML" classname="unit-tests.spec.ts" time="0.052">
+</testcase>
+<testcase name="[chromium] test utils/parseYAML" classname="unit-tests.spec.ts" time="0.051">
+</testcase>
+<testcase name="[chromium] test utils/convertToJSON" classname="unit-tests.spec.ts" time="0.067">
+</testcase>
+<testcase name="[chromium] test utils/parseQueryString" classname="unit-tests.spec.ts" time="0.054">
+</testcase>
+<testcase name="[chromium] test utils/stringifyQueryString" classname="unit-tests.spec.ts" time="0.059">
+</testcase>
+<testcase name="[chromium] test utils/deepClone" classname="unit-tests.spec.ts" time="0.05">
+</testcase>
+<testcase name="[chromium] test utils/mergeObjects" classname="unit-tests.spec.ts" time="0.054">
+</testcase>
+<testcase name="[chromium] test utils/debounce" classname="unit-tests.spec.ts" time="0.048">
+</testcase>
+<testcase name="[chromium] test utils/throttle" classname="unit-tests.spec.ts" time="0.045">
+</testcase>
+<testcase name="[chromium] test utils/flattenArray" classname="unit-tests.spec.ts" time="0.061">
+</testcase>
+<testcase name="[chromium] test utils/uniqueArray" classname="unit-tests.spec.ts" time="0.049">
+</testcase>
+<testcase name="[chromium] test utils/chunkArray" classname="unit-tests.spec.ts" time="0.05">
+</testcase>
+<testcase name="[chromium] test utils/shuffleArray" classname="unit-tests.spec.ts" time="0.048">
+</testcase>
+<testcase name="[chromium] test utils/generateRandomString" classname="unit-tests.spec.ts" time="0.046">
+</testcase>
+<testcase name="[chromium] test utils/generateRandomNumber" classname="unit-tests.spec.ts" time="0.045">
+</testcase>
+<testcase name="[chromium] test utils/formatCurrency" classname="unit-tests.spec.ts" time="0.048">
+</testcase>
+<testcase name="[chromium] test utils/formatPercentage" classname="unit-tests.spec.ts" time="0.049">
+</testcase>
+<testcase name="[chromium] test utils/formatPhoneNumber" classname="unit-tests.spec.ts" time="0.047">
+</testcase>
+<testcase name="[chromium] test utils/formatAddress" classname="unit-tests.spec.ts" time="0.046">
+</testcase>
+<testcase name="[chromium] test utils/validatePhoneNumber" classname="unit-tests.spec.ts" time="0.047">
+</testcase>
+<testcase name="[chromium] test utils/validatePostalCode" classname="unit-tests.spec.ts" time="0.046">
+</testcase>
+<testcase name="[chromium] test utils/validateCreditCard" classname="unit-tests.spec.ts" time="0.072">
+</testcase>
+<testcase name="[chromium] test utils/validateSSN" classname="unit-tests.spec.ts" time="0.072">
+</testcase>
+<testcase name="[chromium] test utils/validateDate" classname="unit-tests.spec.ts" time="0.072">
+</testcase>
+<testcase name="[chromium] test utils/validateTime" classname="unit-tests.spec.ts" time="0.045">
+</testcase>
+<testcase name="[chromium] test utils/validateURL" classname="unit-tests.spec.ts" time="0.045">
+</testcase>
+<testcase name="[chromium] test utils/validateIPAddress" classname="unit-tests.spec.ts" time="0.046">
+</testcase>
+<testcase name="[chromium] test utils/validateMACAddress" classname="unit-tests.spec.ts" time="0.047">
+</testcase>
+<testcase name="[chromium] test utils/validateHexColor" classname="unit-tests.spec.ts" time="0.048">
+</testcase>
+<testcase name="[chromium] test utils/validateRGBColor" classname="unit-tests.spec.ts" time="0.049">
+</testcase>
+<testcase name="[chromium] test utils/validateHSLColor" classname="unit-tests.spec.ts" time="0.051">
+</testcase>
+<testcase name="[chromium] test utils/validatePasswordStrength" classname="unit-tests.spec.ts" time="0.05">
+</testcase>
+<testcase name="[chromium] test utils/validateUsername" classname="unit-tests.spec.ts" time="0.048">
+</testcase>
+<testcase name="[chromium] test utils/validateFullName" classname="unit-tests.spec.ts" time="0.05">
+</testcase>
+<testcase name="[chromium] test utils/validateAge" classname="unit-tests.spec.ts" time="0.049">
+</testcase>
+<testcase name="[chromium] test utils/validateGender" classname="unit-tests.spec.ts" time="0.042">
+</testcase>
+<testcase name="[chromium] test utils/validateCountry" classname="unit-tests.spec.ts" time="0.046">
+</testcase>
+<testcase name="[chromium] test utils/validateState" classname="unit-tests.spec.ts" time="0.047">
+</testcase>
+<testcase name="[chromium] test utils/validateCity" classname="unit-tests.spec.ts" time="0.048">
+</testcase>
+<testcase name="[chromium] test utils/validateStreet" classname="unit-tests.spec.ts" time="0.047">
+</testcase>
+<testcase name="[chromium] test utils/validateHouseNumber" classname="unit-tests.spec.ts" time="0.047">
+</testcase>
+<testcase name="[chromium] test utils/validateApartmentNumber" classname="unit-tests.spec.ts" time="0.045">
+</testcase>
+<testcase name="[chromium] test utils/validateLatitude" classname="unit-tests.spec.ts" time="0.047">
+</testcase>
+<testcase name="[chromium] test utils/validateLongitude" classname="unit-tests.spec.ts" time="0.046">
+</testcase>
+<testcase name="[chromium] test utils/validateCoordinate" classname="unit-tests.spec.ts" time="0.047">
+</testcase>
+<testcase name="[chromium] test utils/validateTemperature" classname="unit-tests.spec.ts" time="0.045">
+</testcase>
+<testcase name="[chromium] test utils/validateHumidity" classname="unit-tests.spec.ts" time="0.047">
+</testcase>
+<testcase name="[chromium] test utils/validatePressure" classname="unit-tests.spec.ts" time="0.044">
+</testcase>
+<testcase name="[chromium] test utils/validateWindSpeed" classname="unit-tests.spec.ts" time="0.046">
+</testcase>
+<testcase name="[chromium] test utils/validateWindDirection" classname="unit-tests.spec.ts" time="0.046">
+</testcase>
+<testcase name="[chromium] test utils/validatePrecipitation" classname="unit-tests.spec.ts" time="0.044">
+</testcase>
+<testcase name="[chromium] test utils/validateSnowfall" classname="unit-tests.spec.ts" time="0.045">
+</testcase>
+<testcase name="[chromium] test utils/validateCloudCover" classname="unit-tests.spec.ts" time="0.045">
+</testcase>
+<testcase name="[chromium] test utils/validateVisibility" classname="unit-tests.spec.ts" time="0.045">
+</testcase>
+<testcase name="[chromium] test utils/validateUVIndex" classname="unit-tests.spec.ts" time="0.046">
+</testcase>
+<testcase name="[chromium] test utils/validateAirQuality" classname="unit-tests.spec.ts" time="0.046">
+</testcase>
+<testcase name="[chromium] test utils/validatePollenCount" classname="unit-tests.spec.ts" time="0.046">
+</testcase>
+<testcase name="[chromium] test utils/validateSunriseTime" classname="unit-tests.spec.ts" time="0.047">
+</testcase>
+<testcase name="[chromium] test utils/validateSunsetTime" classname="unit-tests.spec.ts" time="0.045">
+</testcase>
+<testcase name="[chromium] test utils/validateMoonriseTime" classname="unit-tests.spec.ts" time="0.047">
+</testcase>
+<testcase name="[chromium] test utils/validateMoonsetTime" classname="unit-tests.spec.ts" time="0.048">
+</testcase>
+<testcase name="[chromium] test utils/validateMoonPhase" classname="unit-tests.spec.ts" time="0.05">
+</testcase>
+<testcase name="[chromium] test utils/validateTideLevel" classname="unit-tests.spec.ts" time="0.048">
+</testcase>
+<testcase name="[chromium] test utils/validateWaveHeight" classname="unit-tests.spec.ts" time="0.048">
+</testcase>
+<testcase name="[chromium] test utils/validateWavePeriod" classname="unit-tests.spec.ts" time="0.046">
+</testcase>
+<testcase name="[chromium] test utils/validateWaveDirection" classname="unit-tests.spec.ts" time="0.044">
+</testcase>
+<testcase name="[chromium] test utils/validateSeaSurfaceTemperature" classname="unit-tests.spec.ts" time="0.045">
+</testcase>
+<testcase name="[chromium] test utils/validateEmailFormat" classname="unit-tests.spec.ts" time="0.045">
+</testcase>
+<testcase name="[chromium] test utils/validatePasswordComplexity" classname="unit-tests.spec.ts" time="0.045">
+</testcase>
+<testcase name="[chromium] test utils/validateUsernameUniqueness" classname="unit-tests.spec.ts" time="0.045">
+</testcase>
+<testcase name="[chromium] test utils/validateUserAge" classname="unit-tests.spec.ts" time="0.045">
+</testcase>
+<testcase name="[chromium] test utils/validateUserGender" classname="unit-tests.spec.ts" time="0.045">
+</testcase>
+<testcase name="[chromium] test utils/validateUserCountry" classname="unit-tests.spec.ts" time="0.047">
+</testcase>
+<testcase name="[chromium] test utils/validateUserState" classname="unit-tests.spec.ts" time="0.045">
+</testcase>
+<testcase name="[chromium] test utils/validateUserCity" classname="unit-tests.spec.ts" time="0.045">
+</testcase>
+<testcase name="[chromium] test utils/validateUserStreet" classname="unit-tests.spec.ts" time="0.047">
+</testcase>
+<testcase name="[chromium] test utils/validateUserHouseNumber" classname="unit-tests.spec.ts" time="0.046">
+</testcase>
+<testcase name="[chromium] test utils/validateUserApartmentNumber" classname="unit-tests.spec.ts" time="0.045">
+</testcase>
+<testcase name="[chromium] test utils/validateUserLatitude" classname="unit-tests.spec.ts" time="0.047">
+</testcase>
+<testcase name="[chromium] test utils/validateUserLongitude" classname="unit-tests.spec.ts" time="0.047">
+</testcase>
+<testcase name="[chromium] test utils/validateUserCoordinate" classname="unit-tests.spec.ts" time="0.047">
+</testcase>
+<testcase name="[chromium] test utils/validateUserTemperature" classname="unit-tests.spec.ts" time="0.046">
+</testcase>
+<testcase name="[chromium] test utils/validateUserHumidity" classname="unit-tests.spec.ts" time="0.046">
+</testcase>
+<testcase name="[chromium] test utils/validateUserPressure" classname="unit-tests.spec.ts" time="0.045">
+</testcase>
+<testcase name="[chromium] test utils/validateUserWindSpeed" classname="unit-tests.spec.ts" time="0.045">
+</testcase>
+<testcase name="[chromium] test utils/validateUserWindDirection" classname="unit-tests.spec.ts" time="0.045">
+</testcase>
+<testcase name="[chromium] test utils/validateUserPrecipitation" classname="unit-tests.spec.ts" time="0.045">
+</testcase>
+<testcase name="[chromium] test utils/validateUserSnowfall" classname="unit-tests.spec.ts" time="0.046">
+</testcase>
+<testcase name="[chromium] test utils/validateUserCloudCover" classname="unit-tests.spec.ts" time="0.047">
+</testcase>
+<testcase name="[chromium] test utils/validateUserVisibility" classname="unit-tests.spec.ts" time="0.047">
+</testcase>
+<testcase name="[chromium] test utils/validateUserUVIndex" classname="unit-tests.spec.ts" time="0.045">
+</testcase>
+<testcase name="[chromium] test utils/validateUserAirQuality" classname="unit-tests.spec.ts" time="0.046">
+</testcase>
+<testcase name="[chromium] test utils/validateUserPollenCount" classname="unit-tests.spec.ts" time="0.047">
+</testcase>
+<testcase name="[chromium] test utils/validateUserSunriseTime" classname="unit-tests.spec.ts" time="0.046">
+</testcase>
+<testcase name="[chromium] test utils/validateUserSunsetTime" classname="unit-tests.spec.ts" time="0.048">
+</testcase>
+<testcase name="[chromium] test utils/validateUserMoonriseTime" classname="unit-tests.spec.ts" time="0.045">
+</testcase>
+<testcase name="[chromium] test utils/validateUserMoonsetTime" classname="unit-tests.spec.ts" time="0.045">
+</testcase>
+<testcase name="[chromium] test utils/validateUserMoonPhase" classname="unit-tests.spec.ts" time="0.046">
+</testcase>
+<testcase name="[chromium] test utils/validateUserTideLevel" classname="unit-tests.spec.ts" time="0.045">
+</testcase>
+<testcase name="[chromium] test utils/validateUserWaveHeight" classname="unit-tests.spec.ts" time="0.045">
+</testcase>
+<testcase name="[chromium] test utils/validateUserWavePeriod" classname="unit-tests.spec.ts" time="0.044">
+</testcase>
+<testcase name="[chromium] test utils/validateUserWaveDirection" classname="unit-tests.spec.ts" time="0.044">
+</testcase>
+<testcase name="[chromium] test utils/validateUserSeaSurfaceTemperature" classname="unit-tests.spec.ts" time="0.046">
+</testcase>
+<testcase name="[chromium] test utils/validateUserBloodPressure" classname="unit-tests.spec.ts" time="0.046">
+</testcase>
+<testcase name="[chromium] test utils/validateUserHeartRate" classname="unit-tests.spec.ts" time="0.046">
+</testcase>
+<testcase name="[chromium] test utils/validateUserCholesterolLevel" classname="unit-tests.spec.ts" time="0.044">
+</testcase>
+<testcase name="[chromium] test utils/validateUserBloodSugarLevel" classname="unit-tests.spec.ts" time="0.044">
+</testcase>
+<testcase name="[chromium] test utils/validateUserBMI" classname="unit-tests.spec.ts" time="0.044">
+</testcase>
+<testcase name="[chromium] test utils/validateUserHeight" classname="unit-tests.spec.ts" time="0.045">
+</testcase>
+<testcase name="[chromium] test utils/validateUserWeight" classname="unit-tests.spec.ts" time="0.045">
+</testcase>
+<testcase name="[chromium] test utils/validateUserBodyFatPercentage" classname="unit-tests.spec.ts" time="0.045">
+</testcase>
+<testcase name="[chromium] test utils/validateUserMuscleMass" classname="unit-tests.spec.ts" time="0.047">
+</testcase>
+<testcase name="[chromium] test utils/validateUserBoneDensity" classname="unit-tests.spec.ts" time="0.045">
+</testcase>
+<testcase name="[chromium] test utils/validateUserWaterIntake" classname="unit-tests.spec.ts" time="0.045">
+</testcase>
+<testcase name="[chromium] test utils/validateUserCalorieIntake" classname="unit-tests.spec.ts" time="0.045">
+</testcase>
+<testcase name="[chromium] test utils/validateUserProteinIntake" classname="unit-tests.spec.ts" time="0.046">
+</testcase>
+<testcase name="[chromium] test utils/validateUserCarbohydrateIntake" classname="unit-tests.spec.ts" time="0.044">
+</testcase>
+<testcase name="[chromium] test utils/validateUserFatIntake" classname="unit-tests.spec.ts" time="0.044">
+</testcase>
+<testcase name="[chromium] test utils/validateUserVitaminIntake" classname="unit-tests.spec.ts" time="0.044">
+</testcase>
+<testcase name="[chromium] test utils/validateUserMineralIntake" classname="unit-tests.spec.ts" time="0.043">
+</testcase>
+<testcase name="[chromium] test utils/validateUserSleepDuration" classname="unit-tests.spec.ts" time="0.046">
+</testcase>
+<testcase name="[chromium] test utils/validateUserSleepQuality" classname="unit-tests.spec.ts" time="0.045">
+</testcase>
+<testcase name="[chromium] test utils/validateUserExerciseDuration" classname="unit-tests.spec.ts" time="0.046">
+</testcase>
+<testcase name="[chromium] test utils/validateUserExerciseIntensity" classname="unit-tests.spec.ts" time="0.046">
+</testcase>
+<testcase name="[chromium] test utils/validateUserStepCount" classname="unit-tests.spec.ts" time="0.045">
+</testcase>
+<testcase name="[chromium] test utils/validateUserDistanceTraveled" classname="unit-tests.spec.ts" time="0.046">
+</testcase>
+<testcase name="[chromium] test utils/validateUserCaloriesBurned" classname="unit-tests.spec.ts" time="0.044">
+</testcase>
+<testcase name="[chromium] test utils/validateUserActiveMinutes" classname="unit-tests.spec.ts" time="0.047">
+</testcase>
+<testcase name="[chromium] test utils/validateUserSedentaryMinutes" classname="unit-tests.spec.ts" time="0.044">
+</testcase>
+<testcase name="[chromium] test utils/validateUserFloorsClimbed" classname="unit-tests.spec.ts" time="0.048">
+</testcase>
+<testcase name="[chromium] test utils/validateUserHeartRateVariability" classname="unit-tests.spec.ts" time="0.046">
+</testcase>
+<testcase name="[chromium] test utils/validateUserRestingHeartRate" classname="unit-tests.spec.ts" time="0.044">
+</testcase>
+<testcase name="[chromium] test utils/validateUserMaxHeartRate" classname="unit-tests.spec.ts" time="0.045">
+</testcase>
+<testcase name="[chromium] test utils/validateUserMinHeartRate" classname="unit-tests.spec.ts" time="0.045">
+</testcase>
+<testcase name="[chromium] test utils/validateUserAverageHeartRate" classname="unit-tests.spec.ts" time="0.044">
+</testcase>
+<testcase name="[chromium] test utils/validateUserStressLevel" classname="unit-tests.spec.ts" time="0.045">
+</testcase>
+<testcase name="[chromium] test utils/validateUserMood" classname="unit-tests.spec.ts" time="0.045">
+</testcase>
+<testcase name="[chromium] test utils/validateUserEnergyLevel" classname="unit-tests.spec.ts" time="0.045">
+</testcase>
+<testcase name="[chromium] test utils/validateUserHydrationLevel" classname="unit-tests.spec.ts" time="0.045">
+</testcase>
+<testcase name="[chromium] test utils/validateUserCaffeineIntake" classname="unit-tests.spec.ts" time="0.045">
+</testcase>
+<testcase name="[chromium] test utils/validateUserAlcoholIntake" classname="unit-tests.spec.ts" time="0.044">
+</testcase>
+<testcase name="[chromium] test utils/validateUserNicotineIntake" classname="unit-tests.spec.ts" time="0.045">
+</testcase>
+<testcase name="[chromium] test utils/validateUserMedicationIntake" classname="unit-tests.spec.ts" time="0.045">
+</testcase>
+<testcase name="[chromium] test utils/validateUserSupplementIntake" classname="unit-tests.spec.ts" time="0.045">
+</testcase>
+<testcase name="[chromium] test utils/validateUserAllergySeverity" classname="unit-tests.spec.ts" time="0.045">
+</testcase>
+<testcase name="[chromium] test utils/validateUserSymptomSeverity" classname="unit-tests.spec.ts" time="0.046">
+</testcase>
+<testcase name="[chromium] test utils/validateUserPainLevel" classname="unit-tests.spec.ts" time="0.045">
+</testcase>
+<testcase name="[chromium] test utils/validateUserFatigueLevel" classname="unit-tests.spec.ts" time="0.047">
+</testcase>
+<testcase name="[chromium] test utils/validateUserNauseaLevel" classname="unit-tests.spec.ts" time="0.046">
+</testcase>
+<testcase name="[chromium] test utils/validateUserDizzinessLevel" classname="unit-tests.spec.ts" time="0.046">
+</testcase>
+<testcase name="[chromium] test utils/validateUserHeadacheSeverity" classname="unit-tests.spec.ts" time="0.045">
+</testcase>
+<testcase name="[chromium] test utils/validateUserCoughSeverity" classname="unit-tests.spec.ts" time="0.045">
+</testcase>
+<testcase name="[chromium] test utils/validateUserFeverSeverity" classname="unit-tests.spec.ts" time="0.044">
+</testcase>
+<testcase name="[chromium] test utils/validateUserChillsSeverity" classname="unit-tests.spec.ts" time="0.046">
+</testcase>
+<testcase name="[chromium] test utils/validateUserSweatingSeverity" classname="unit-tests.spec.ts" time="0.045">
+</testcase>
+<testcase name="[chromium] test utils/validateUserAppetiteLevel" classname="unit-tests.spec.ts" time="0.046">
+</testcase>
+<testcase name="[chromium] test utils/validateUserThirstLevel" classname="unit-tests.spec.ts" time="0.045">
+</testcase>
+<testcase name="[chromium] test utils/validateUserUrineColor" classname="unit-tests.spec.ts" time="0.045">
+</testcase>
+<testcase name="[chromium] test utils/validateUserStoolColor" classname="unit-tests.spec.ts" time="0.045">
+</testcase>
+<testcase name="[chromium] test utils/validateUserStoolConsistency" classname="unit-tests.spec.ts" time="0.048">
+</testcase>
+<testcase name="[chromium] test utils/validateUserMenstrualCycle" classname="unit-tests.spec.ts" time="0.046">
+</testcase>
+<testcase name="[chromium] test utils/validateUserOvulation" classname="unit-tests.spec.ts" time="0.046">
+</testcase>
+<testcase name="[chromium] test utils/validateUserPregnancy" classname="unit-tests.spec.ts" time="0.047">
+</testcase>
+<testcase name="[chromium] test utils/validateUserBreastfeeding" classname="unit-tests.spec.ts" time="0.045">
+</testcase>
+<testcase name="[chromium] test utils/validateUserMenopause" classname="unit-tests.spec.ts" time="0.044">
+</testcase>
+<testcase name="[chromium] test utils/validateUserAndropause" classname="unit-tests.spec.ts" time="0.046">
+</testcase>
+<testcase name="[chromium] test utils/validateUserPuberty" classname="unit-tests.spec.ts" time="0.045">
+</testcase>
+<testcase name="[chromium] test utils/validateUserGrowthSpurt" classname="unit-tests.spec.ts" time="0.044">
+</testcase>
+<testcase name="[chromium] test utils/validateUserDevelopmentalMilestones" classname="unit-tests.spec.ts" time="0.043">
+</testcase>
+</testsuite>
+</testsuites>
