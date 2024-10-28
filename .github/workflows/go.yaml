@@ -1,0 +1,41 @@
+name: GoLang Tests
+
+on:
+  schedule:
+    - cron: 0 */6 * * *
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      # trunk-ignore(checkov/CKV_GHA_7)
+      cli-version:
+        type: string
+        required: false
+        description:
+          The version of `analytics-cli` to use. Defaults to the latest specified in
+          `analytis-uploader`.
+
+jobs:
+  test:
+    env:
+      working-directory: go/d
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Go Action
+        uses: actions/setup-go@v5
+        with:
+          go-version: 1.22.5
+      - name: Install dependencies
+        run: |
+          go install gotest.tools/gotestsum@latest
+
+      - name: Run tests with gotestsum
+        if: ${{ always() }}
+        uses: ./.github/actions/analytics-uploader-wrapper
+        with:
+          token: ${{ secrets.TRUNK_STAGING_ORG_API_TOKEN }}
+          cli-version: ${{ inputs.cli-version }}
+          junit-paths: "**/gotestsum_test.xml"
+          run: sh ./gotest.sh
