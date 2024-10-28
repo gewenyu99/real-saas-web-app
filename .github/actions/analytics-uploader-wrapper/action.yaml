@@ -29,13 +29,13 @@ runs:
         run: ${{ inputs.run }}
         quarantine: true
       env:
-        TRUNK_PUBLIC_API_ADDRESS: https://api.trunk-staging.io
+        TRUNK_PUBLIC_API_ADDRESS: https://api.trunk.io
 
     - name: Upload test results with default CLI version
       if: "${{ inputs.cli-version == '' }}"
       uses: trunk-io/analytics-uploader@main
       with:
-        org-slug: totally-real-saas
+        org-slug: gewenyu99
         token: ${{ inputs.token }}
         junit-paths: ${{ inputs.junit-paths }}
         run: ${{ inputs.run }}
