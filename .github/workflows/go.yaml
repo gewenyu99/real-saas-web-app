@@ -35,7 +35,7 @@ jobs:
         if: ${{ always() }}
         uses: ./.github/actions/analytics-uploader-wrapper
         with:
-          token: ${{ secrets.TRUNK_STAGING_ORG_API_TOKEN }}
+          token: ${{ secrets.TRUNK_ORG_API_TOKEN }}
           cli-version: ${{ inputs.cli-version }}
           junit-paths: "**/gotestsum_test.xml"
           run: sh ./gotest.sh
