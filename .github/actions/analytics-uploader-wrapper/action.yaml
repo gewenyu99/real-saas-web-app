@@ -22,7 +22,7 @@ runs:
       if: "${{ inputs.cli-version != '' }}"
       uses: trunk-io/analytics-uploader@main
       with:
-        org-slug: totally-real-saas
+        org-slug: gewenyu99
         token: ${{ inputs.token }}
         cli-version: ${{ inputs.cli-version }}
         junit-paths: ${{ inputs.junit-paths }}
@@ -41,4 +41,4 @@ runs:
         run: ${{ inputs.run }}
         quarantine: true
       env:
-        TRUNK_PUBLIC_API_ADDRESS: https://api.trunk-staging.io
+        TRUNK_PUBLIC_API_ADDRESS: https://api.trunk.io
