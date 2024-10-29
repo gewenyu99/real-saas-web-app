@@ -18,20 +18,7 @@ inputs:
 runs:
   using: composite
   steps:
-    - name: Upload test results with CLI version ${{ inputs.cli-version }}
-      if: "${{ inputs.cli-version != '' }}"
-      uses: trunk-io/analytics-uploader@main
-      with:
-        org-slug: gewenyu99
-        token: ${{ inputs.token }}
-        cli-version: ${{ inputs.cli-version }}
-        junit-paths: ${{ inputs.junit-paths }}
-        run: ${{ inputs.run }}
-      env:
-        TRUNK_PUBLIC_API_ADDRESS: https://api.trunk.io
-
     - name: Upload test results with default CLI version
-      if: "${{ inputs.cli-version == '' }}"
       uses: trunk-io/analytics-uploader@main
       with:
         org-slug: gewenyu99
